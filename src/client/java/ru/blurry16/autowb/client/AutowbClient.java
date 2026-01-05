@@ -18,6 +18,6 @@ public class AutowbClient implements ClientModInitializer {
 
         PlayerJoinDetector.init();
         LOGGER.info("autowb initialized");
-        LOGGER.info(MinecraftClient.getInstance().getName());
+
     }
 }
