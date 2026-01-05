@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "autowb",
+  "version": "${version}",
+  "name": "autowb",
+  "description": "automatic welcome back for cubeville.org",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/autowb/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "ru.blurry16.autowb.client.AutowbClient"
+    ],
+    "main": [
+      "ru.blurry16.autowb.Autowb"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
