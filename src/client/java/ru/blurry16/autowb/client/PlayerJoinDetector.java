@@ -7,36 +7,22 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PlayerJoinDetector {
-    private final static Pattern PATTERN = Pattern.compile("(\\w+) joined the game");
+
+    private final static Pattern PATTERN = Pattern.compile("(\\w+) joined the game"); // default CV pattern
+    private final static Random RANDOM = new Random();
 
     public static void init() {
+
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
-            dispatcher.register(ClientCommandManager.literal("autowb")
-                    .executes(context -> {
-                        AutowbClient.enabled = !AutowbClient.enabled;
-                        assert MinecraftClient.getInstance().player != null;
-                        MinecraftClient.getInstance().player.sendMessage(Text.literal(
-                                "autowb " + (AutowbClient.enabled ? "enabled" : "disabled")), false);
-                        return 1;
-                    }));
+            dispatcher.register(ClientCommandManager.literal("autowb").executes(AutowbCommands::autowb));
         });
 
-        ClientReceiveMessageEvents.ALLOW_GAME.register(((text, b) -> {
-            long unixTime = System.currentTimeMillis() / 1000L;
-            if (shouldWB(text, unixTime)) {
-                MinecraftClient client = MinecraftClient.getInstance();
-                if (client.player != null) {
-                    client.player.networkHandler.sendChatCommand("y wb");
-                    AutowbClient.lastWB = unixTime;
-                }
-            }
-            return true;
-        }
-        ));
+        ClientReceiveMessageEvents.ALLOW_GAME.register((PlayerJoinDetector::onMessage));
     }
 
     private static String textToString(Text text) {
@@ -53,12 +39,24 @@ public class PlayerJoinDetector {
 
     private static boolean shouldWB(Text text, long time) {
         if (!AutowbClient.enabled) return false;
-        long unixTime = System.currentTimeMillis() / 1000L;
         String playerName = getPlayerName(text);
         if (playerName == null) return false;
         assert MinecraftClient.getInstance().player != null;
-        return (!playerName.equals(MinecraftClient.getInstance().player.getName().getString()) &&
-                PATTERN.asMatchPredicate().test(textToString(text)) &&
-                unixTime - AutowbClient.lastWB > 30);
+        return (!playerName.equals(MinecraftClient.getInstance().player.getName().getString()) && PATTERN.asMatchPredicate().test(textToString(text)) && time - AutowbClient.lastWB > 30);
+    }
+
+    private static boolean onMessage(Text text, boolean b) {
+        long unixTime = System.currentTimeMillis() / 1000L;
+        if (shouldWB(text, unixTime)) {
+            MinecraftClient client = MinecraftClient.getInstance();
+            if (client.player != null) {
+                TickScheduler.schedule(RANDOM.nextInt(20, 31), () -> {
+                    String message = AutowbClient.GREETINGS[RANDOM.nextInt(0, AutowbClient.GREETINGS.length)];
+                    client.player.networkHandler.sendChatCommand("y " + message);
+                });
+                AutowbClient.lastWB = unixTime;
+            }
+        }
+        return true;
     }
 }
