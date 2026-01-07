@@ -3,5 +3,10 @@
   "modmenu.summaryTranslation.autowb": "automatic welcome back mod",
   "text.autoconfig.autowb.title": "autowb config",
   "text.autoconfig.autowb.option.enabled": "Enabled",
-  "text.autoconfig.autowb.option.greetings": "Greetings"
+  "text.autoconfig.autowb.option.greetings": "Greetings",
+  "text.autoconfig.autowb.option.minTicksDelayBound": "Lower bound of message sending delay (ticks)",
+  "text.autoconfig.autowb.option.maxTicksDelayBound": "Upper bound of message sending delay (ticks)",
+  "text.autoconfig.autowb.option.minSecondsBetweenWBs": "Minimal time between wbs (seconds)",
+  "text.autoconfig.autowb.option.wbTwiceInARow": "Welcome back the same person twice in a row",
+  "text.autoconfig.autowb.option.wbLastWhoLeft": "Welcome back the last person who left"
 }

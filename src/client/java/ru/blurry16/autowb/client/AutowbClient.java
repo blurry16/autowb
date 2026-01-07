@@ -13,12 +13,11 @@ public class AutowbClient implements ClientModInitializer {
 
     public final static String MOD_ID = "autowb";
     public final static Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-//    public final static String[] GREETINGS = {"wb", "Wb", "WB", "hi", "hello", "sup", "Hi", "Hello", "Sup",};
 
     public static long lastWB = 0L;
     public static String lastWBed; // last player who got wb
+    public static String lastLeft; // last player who left
 
-//    public static boolean enabled = false;
 
     public static AutowbConfig CONFIG;
 
@@ -28,7 +27,7 @@ public class AutowbClient implements ClientModInitializer {
         AutoConfig.register(AutowbConfig.class, GsonConfigSerializer::new);
         CONFIG = AutoConfig.getConfigHolder(AutowbConfig.class).getConfig();
 
-        PlayerJoinDetector.init();
+        PlayerActivityDetector.init();
         ClientTickEvents.END_CLIENT_TICK.register(server -> TickScheduler.tick());
         ClientLifecycleEvents.CLIENT_STOPPING.register(client -> {
             AutoConfig.getConfigHolder(AutowbConfig.class).save();

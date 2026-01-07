@@ -3,5 +3,10 @@
   "modmenu.summaryTranslation.autowb": "мод для автоматических приветствий",
   "text.autoconfig.autowb.title": "Настройки autowb",
   "text.autoconfig.autowb.option.enabled": "Включен",
-  "text.autoconfig.autowb.option.greetings": "Приветствия"
+  "text.autoconfig.autowb.option.greetings": "Приветствия",
+  "text.autoconfig.autowb.option.minTicksDelayBound": "Нижняя граница задержки отправки сообщений (ticks)",
+  "text.autoconfig.autowb.option.maxTicksDelayBound": "Верхняя граница задержки отправки сообщений (ticks)",
+  "text.autoconfig.autowb.option.minSecondsBetweenWBs": "Минимальное время между приветствиями (секунды)",
+  "text.autoconfig.autowb.option.wbTwiceInARow": "Приветствовать одного и того же игрока два раза подряд",
+  "text.autoconfig.autowb.option.wbLastWhoLeft": "Приветствовать последнего покинувшего сервер"
 }
