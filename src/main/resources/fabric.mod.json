@@ -3,7 +3,7 @@
   "id": "autowb",
   "version": "${version}",
   "name": "autowb",
-  "description": "automatic welcome back for cubeville.org",
+  "description": "automatic welcome back mod for cubeville.org",
   "authors": [],
   "contact": {},
   "license": "MIT",
@@ -15,7 +15,8 @@
     ],
     "main": [
       "ru.blurry16.autowb.Autowb"
-    ]
+    ],
+    "modmenu": ["ru.blurry16.autowb.client.AutowbModMenu"]
   },
   "depends": {
     "fabricloader": ">=${loader_version}",

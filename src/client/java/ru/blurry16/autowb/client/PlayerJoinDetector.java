@@ -38,7 +38,7 @@ public class PlayerJoinDetector {
     }
 
     private static boolean shouldWB(Text text, long time) {
-        if (!AutowbClient.enabled) return false;
+        if (!AutowbClient.CONFIG.enabled) return false;
         String playerName = getPlayerName(text);
         if (playerName == null) return false;
         assert MinecraftClient.getInstance().player != null;
@@ -51,7 +51,7 @@ public class PlayerJoinDetector {
             MinecraftClient client = MinecraftClient.getInstance();
             if (client.player != null) {
                 TickScheduler.schedule(RANDOM.nextInt(20, 31), () -> {
-                    String message = AutowbClient.GREETINGS[RANDOM.nextInt(0, AutowbClient.GREETINGS.length)];
+                    String message = AutowbClient.CONFIG.greetings.get(RANDOM.nextInt(0, AutowbClient.CONFIG.greetings.size()));
                     client.player.networkHandler.sendChatCommand("y " + message);
                 });
                 AutowbClient.lastWB = unixTime;
