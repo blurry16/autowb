@@ -10,7 +10,7 @@ This modification is not affiliated with cubeville.org administration.
 - **[Cloth Config](https://modrinth.com/mod/cloth-config)**
 
 ### To access the config you can:
-1. Download [Mod Menu](https://modrinth.com/mod/modmenu) and configure it using it.
+1. Download [Mod Menu](https://modrinth.com/mod/modmenu) and configure autowb using it.
 2. Using .minecraft/config/autowb.json.
 
 #### Also, there's command `/autowb` that toggles the mod work.
