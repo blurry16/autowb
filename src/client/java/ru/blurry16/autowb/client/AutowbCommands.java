@@ -13,8 +13,6 @@ public class AutowbCommands {
         assert MinecraftClient.getInstance().player != null;
         MinecraftClient.getInstance().player.sendMessage(Text.literal("autowb " + (AutowbClient.CONFIG.enabled ? "enabled" : "disabled")), false);
 
-
-//        MinecraftClient.getInstance().setScreen(AutoConfig.getConfigScreen(AutowbConfig.class, null).get());
         return 1;
     }
 }

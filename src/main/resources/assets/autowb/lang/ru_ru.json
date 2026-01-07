@@ -1,4 +1,6 @@
 {
+  "modmenu.descriptionTranslation.autowb": "мод для автоматических приветствий на cubeville.org",
+  "modmenu.summaryTranslation.autowb": "мод для автоматических приветствий",
   "text.autoconfig.autowb.title": "Настройки autowb",
   "text.autoconfig.autowb.option.enabled": "Включен",
   "text.autoconfig.autowb.option.greetings": "Приветствия"

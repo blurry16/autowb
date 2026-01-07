@@ -5,7 +5,9 @@
   "name": "autowb",
   "description": "automatic welcome back mod for cubeville.org",
   "authors": [],
-  "contact": {},
+  "contact": {
+    "sources": "https:/github.com/blurry16/autowb"
+  },
   "license": "MIT",
   "icon": "assets/autowb/icon.png",
   "environment": "client",

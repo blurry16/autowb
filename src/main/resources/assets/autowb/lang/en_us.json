@@ -1,5 +1,7 @@
 {
- "text.autoconfig.autowb.title": "autowb config",
+  "modmenu.descriptionTranslation.autowb": "automatic welcome back mod for cubeville.org",
+  "modmenu.summaryTranslation.autowb": "automatic welcome back mod",
+  "text.autoconfig.autowb.title": "autowb config",
   "text.autoconfig.autowb.option.enabled": "Enabled",
   "text.autoconfig.autowb.option.greetings": "Greetings"
 }
